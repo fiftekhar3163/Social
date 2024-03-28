@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 body {
   background-color: #333;
   color: white;
@@ -7,7 +9,7 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: min(100% - 30px, 1140px);
   margin: 0 auto;
 }
 
@@ -20,6 +22,7 @@ header {
 
 .logo {
   font-size: 24px;
+  color: rgb(108, 121, 236);
 }
 
 nav ul {
