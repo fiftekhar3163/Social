@@ -20,6 +20,10 @@ body {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .align-center {
   align-items: center;
 }
@@ -110,8 +114,9 @@ nav ul li a {
 
 .button {
   background-color: chocolate;
-  padding: 0.1em;
+  padding: 8px 12px;
   margin: right;
+  border-radius: 5px;
 }
 
 .modal {
