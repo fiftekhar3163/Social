@@ -31,33 +31,32 @@ document.getElementsByClassName('close')[0].addEventListener('click', function()
     const modal = document.getElementById('modal');
     modal.style.display = 'none';
 });
- function clearForm() {
-    document.getElementById('postText').value = ''; // Clear textarea
-    document.getElementById('imageUpload').value = ''; // Clear file input
+function clearForm() {
+    document.getElementById('postForm').reset();
+    document.getElementById('selectedFileName').textContent = "";
 }
+
 // Handle form submission
 document.getElementById('postForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const postText = document.getElementById('postText').value;
     const imageFile = document.getElementById('imageUpload').files[0]; // You can handle image upload here
     const post = createPost(postText, imageFile);
-    document.getElementById('posts').appendChild(post);
+    const postsContainer = document.getElementById('posts');
+    const firstPost = postsContainer.firstElementChild;
+    postsContainer.insertBefore(post, firstPost);
     clearForm()
 });
-// function clearForm() {
-// //     document.getElementById('postForm').reset();
-// // }
 
 document.getElementById('imageUpload').addEventListener('change', function() {
     const fileName = this.files[0].name;
     document.getElementById('selectedFileName').textContent = fileName;
-    
+
 });
 
 function imageUrl(file) {
     const imageUrl = URL.createObjectURL(file);
     return imageUrl;
-    clearForm()
   }
 
 // Function to create a post element
@@ -69,7 +68,8 @@ function createPost(text, image) {
     postHeader.classList.add('post-header');
     postHeader.innerHTML = `
         <div class='flex gap-2'>
-        <img src="../assets/img/user-icon.png" alt="User Icon" class='icon'>
+        <img class='icon'>
+        <i class="fa-solid fa-circle-user"></i>
         <span class="user-name">${subscriber.name}</span>
         </div>
         <div class="post-info">
