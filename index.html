@@ -30,7 +30,7 @@
   <body>
     <div class="container">
       <header>
-        <div class="logo">Social Network</div>
+        <div class="logo">Social</div>
         <nav>
           <ul>
             <li><a href="#">Friends</a></li>
@@ -41,18 +41,19 @@
           </ul>
         </nav>
         <div class="user-info" id="userInfo">
-          <img src="user-icon.png" alt="User Icon" />
+          <img class="icon" src="./assets/img/favicon.png" alt="User Icon" />
         </div>
       </header>
       <main>
         <section class="post-section">
           <form id="postForm">
             <textarea
+              class="textarea"
               id="postText"
               placeholder="What's on your mind?"
             ></textarea>
-            <input type="file" id="imageUpload" />
-            <button type="submit" id="postButton">Post</button>
+            <input class="imageupload" type="file" id="imageUpload" />
+            <button class="button" type="submit" id="postButton">Post</button>
           </form>
           <div id="posts"></div>
         </section>

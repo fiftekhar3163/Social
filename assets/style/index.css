@@ -42,14 +42,32 @@ nav ul li a {
   cursor: pointer;
 }
 
+.icon {
+  border-radius: 50%;
+  height: 30px;
+}
+
 .post-section {
   background-color: #444;
   padding: 20px;
   margin-top: 20px;
 }
 
-#posts {
+.textarea {
+  background-color: #444;
+  color: rgb(251, 249, 249);
+  width: 100%;
+  resize: none;
+}
+
+.imageupload {
+  background-color: #444;
+}
+
+.button {
   margin-top: 20px;
+  background-color: chocolate;
+  padding: 0.1em;
 }
 
 .modal {
