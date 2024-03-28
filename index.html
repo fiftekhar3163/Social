@@ -41,10 +41,11 @@
           </ul>
         </nav>
         <div class="user-info" id="userInfo">
-          <img class="icon" src="./assets/img/favicon.png" alt="User Icon" />
+          <img class="icon" />
+          <i class="fa-solid fa-circle-user"></i>
         </div>
       </header>
-      <main>
+      <main class="flex justify-center align-center flex-column">
         <section class="post-section">
           <form id="postForm">
             <textarea
@@ -52,11 +53,20 @@
               id="postText"
               placeholder="What's on your mind?"
             ></textarea>
-            <input class="imageupload" type="file" id="imageUpload" />
+            <input
+              type="file"
+              id="imageUpload"
+              accept="image/*"
+              style="display: none"
+            />
+            <label for="imageUpload" id="imageUploadLabel">
+              <i class="fa-solid fa-image"></i
+            ></label>
+            <span id="selectedFileName"></span>
             <button class="button" type="submit" id="postButton">Post</button>
           </form>
-          <div id="posts"></div>
         </section>
+        <div id="posts"></div>
       </main>
       <div id="modal" class="modal">
         <div class="modal-content">
@@ -66,7 +76,7 @@
       </div>
     </div>
 
-    <script src="./assets/script/class.js"></script>
-    <script src="./assets/script/index.js"></script>
+    <script src="./assets/script/class.js" type="module"></script>
+    <script src="./assets/script/index.js" type="module"></script>
   </body>
 </html>

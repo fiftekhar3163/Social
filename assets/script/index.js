@@ -31,7 +31,10 @@ document.getElementsByClassName('close')[0].addEventListener('click', function()
     const modal = document.getElementById('modal');
     modal.style.display = 'none';
 });
-
+ function clearForm() {
+    document.getElementById('postText').value = ''; // Clear textarea
+    document.getElementById('imageUpload').value = ''; // Clear file input
+}
 // Handle form submission
 document.getElementById('postForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -39,17 +42,54 @@ document.getElementById('postForm').addEventListener('submit', function(event) {
     const imageFile = document.getElementById('imageUpload').files[0]; // You can handle image upload here
     const post = createPost(postText, imageFile);
     document.getElementById('posts').appendChild(post);
+    clearForm()
 });
+// function clearForm() {
+// //     document.getElementById('postForm').reset();
+// // }
+
+document.getElementById('imageUpload').addEventListener('change', function() {
+    const fileName = this.files[0].name;
+    document.getElementById('selectedFileName').textContent = fileName;
+    
+});
+
+function imageUrl(file) {
+    const imageUrl = URL.createObjectURL(file);
+    return imageUrl;
+    clearForm()
+  }
 
 // Function to create a post element
 function createPost(text, image) {
+    console.log(image)
     const postDiv = document.createElement('div');
     postDiv.classList.add('post');
     const postHeader = document.createElement('div');
     postHeader.classList.add('post-header');
     postHeader.innerHTML = `
-        <img src="user-icon.png" alt="User Icon">
+        <div class='flex gap-2'>
+        <img src="../assets/img/user-icon.png" alt="User Icon" class='icon'>
+        <span class="user-name">${subscriber.name}</span>
+        </div>
         <div class="post-info">
-            <span class="user-name">${subscriber.name}</span>
             <span class="post-date">${getCurrentDate()}</span>
-        </div>`};
+        </div>`
+        const postContent = document.createElement('div');
+        postContent.classList.add('post-content');
+        postContent.innerHTML = `<p>${text}</p>`;
+        if(image){
+            const img = document.createElement('img');
+            img.src = imageUrl(image)
+            postContent.appendChild(img)
+        }
+        postDiv.appendChild(postHeader);
+        postDiv.appendChild(postContent);
+        return postDiv;
+    };
+
+    function getCurrentDate() {
+        const date = new Date();
+        const options = { month: 'long', day: 'numeric', year: 'numeric' };
+        return date.toLocaleDateString('en-US', options);
+    }

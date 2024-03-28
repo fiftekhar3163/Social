@@ -8,6 +8,22 @@ body {
   padding: 0;
 }
 
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
 .container {
   width: min(100% - 30px, 1140px);
   margin: 0 auto;
@@ -45,15 +61,40 @@ nav ul li a {
   cursor: pointer;
 }
 
-.icon {
-  border-radius: 50%;
-  height: 30px;
-}
+/* .icon { */
+/* border-radius: 50%;
+  height: 50px;
+} */
 
 .post-section {
   background-color: #444;
   padding: 20px;
   margin-top: 20px;
+  width: 50%;
+}
+
+#posts {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 50%;
+  margin-top: 2rem;
+}
+
+.post {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  color: #000;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gap-2 {
+  gap: 2rem;
 }
 
 .textarea {
@@ -68,9 +109,9 @@ nav ul li a {
 }
 
 .button {
-  margin-top: 20px;
   background-color: chocolate;
   padding: 0.1em;
+  margin: right;
 }
 
 .modal {
